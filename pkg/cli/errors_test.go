@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GSI Helmholtzzentrum für Schwerionenforschung GmbH <https://www.gsi.de/en/>
-//
-// SPDX-License-Identifier: LGPL-3.0-or-later
-
 package cli
 
 import (
@@ -10,7 +6,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_ErrSilentExit_Error(t *testing.T) {
+func Test_SilentExitError_Error(t *testing.T) {
 	tests := []struct {
 		code     int
 		expected string
@@ -22,7 +18,7 @@ func Test_ErrSilentExit_Error(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		err := &ErrSilentExit{Code: tt.code}
+		err := &SilentExitError{Code: tt.code}
 		require.Equal(t, tt.expected, err.Error())
 	}
 }
